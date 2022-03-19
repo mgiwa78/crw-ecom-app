@@ -1,6 +1,7 @@
 import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
 import {
+  signInWithCredential,
   getAuth,
   signInWithRedirect,
   signInWithPopup,
@@ -75,4 +76,10 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
 
   const userRef = await createUserWithEmailAndPassword(auth, email, password);
   return userRef;
+};
+
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+
+  return await signInWithEmailAndPassword(auth, email, password);
 };
