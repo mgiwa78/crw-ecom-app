@@ -1,7 +1,10 @@
-import { useState } from "react/cjs/react.development";
+import { useState, useContext } from "react/cjs/react.development";
 
 import Button from "../custom-btn/custom-btn.component";
 import FormInput from "../form-input/form-input.component";
+
+import { UserContext } from "../../context/user.context";
+
 import {
   auth,
   signInAuthUserWithEmailAndPassword,
@@ -16,15 +19,29 @@ const defaultFields = {
 };
 
 const SignInForm = () => {
+  const [formFields, setFormFields] = useState(defaultFields);
+
+  const handleChange = (event) => {
+    console.log(formFields);
+    const { name, value } = event.target;
+
+    setFormFields({ ...formFields, [name]: value });
+  };
+
+  const signInWithGoogle = async () => {
+    await signInWithGooglePopup();
+  };
+
+  const { email, password } = formFields;
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const responce = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
-      console.log(responce);
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
@@ -39,22 +56,6 @@ const SignInForm = () => {
       }
     }
   };
-
-  const [formFields, setFormFields] = useState(defaultFields);
-
-  const handleChange = (event) => {
-    console.log(formFields);
-    const { name, value } = event.target;
-
-    setFormFields({ ...formFields, [name]: value });
-  };
-
-  const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
-  };
-
-  const { email, password } = formFields;
 
   return (
     <div className="sign-in-container">
