@@ -5,7 +5,7 @@ import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown";
 
 import { UserContext } from "../../context/user.context";
-import { CartContext } from "../../context/cart-dropdown.context";
+import { CartContext } from "../../context/cart.context";
 
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 import "./navigation-bar.styles.scss";
