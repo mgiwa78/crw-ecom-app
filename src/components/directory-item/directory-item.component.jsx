@@ -1,5 +1,6 @@
 import "./directory-item.styles.scss";
 
+import { Link } from "react-router-dom";
 import {
   DirectoryItemContainer,
   DirectoryItemBackground,
@@ -18,7 +19,9 @@ const DirectoryItem = ({ category }) => {
       />
       <DirectoryItemBody>
         <h2>{title}</h2>
-        <p> Shop Now</p>
+        <p>
+          <Link to={`/shop/${title}`}> Shop Now</Link>
+        </p>
       </DirectoryItemBody>
     </DirectoryItemContainer>
   );
