@@ -24,7 +24,6 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFields);
 
   const handleChange = (event) => {
-    console.log(formFields);
     const { name, value } = event.target;
 
     setFormFields({ ...formFields, [name]: value });

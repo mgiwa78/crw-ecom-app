@@ -9,14 +9,10 @@ import {
 
 const DirectoryItem = ({ category }) => {
   const { imageUrl, title, id } = category;
-  console.log(category);
 
   return (
     <DirectoryItemContainer key={id}>
-      <DirectoryItemBackground
-        className="background-image"
-        style={{ backgroundImage: `url(${imageUrl})` }}
-      />
+      <DirectoryItemBackground imageUrl={imageUrl} />
       <DirectoryItemBody>
         <h2>{title}</h2>
         <p>
