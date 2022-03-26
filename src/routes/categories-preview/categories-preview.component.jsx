@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react/cjs/react.development";
+import { Fragment, useContext } from "react";
 import { CategoryContext } from "../../context/category.context";
 
 import CategoryPreview from "../../components/category-preview/category-preview.component";

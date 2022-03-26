@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react/cjs/react.development";
+import { Fragment, useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";

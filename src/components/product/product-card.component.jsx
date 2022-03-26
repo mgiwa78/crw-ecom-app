@@ -1,6 +1,6 @@
 import "./product-card.styles.scss";
 
-import { useContext } from "react/cjs/react.development";
+import { useContext } from "react";
 
 import { BUTTON_TYPE_CLASS } from "../custom-btn/custom-btn.component";
 import Button from "../custom-btn/custom-btn.component";

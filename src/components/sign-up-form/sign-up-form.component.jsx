@@ -1,4 +1,4 @@
-import { useState, useContext } from "react/cjs/react.development";
+import { useState, useContext } from "react";
 
 import FormInput from "../form-input/form-input.component";
 import Button from "../custom-btn/custom-btn.component";

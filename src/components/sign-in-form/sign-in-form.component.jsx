@@ -1,4 +1,4 @@
-import { useState, useContext } from "react/cjs/react.development";
+import { useState, useContext } from "react";
 
 import { BUTTON_TYPE_CLASS } from "../custom-btn/custom-btn.component";
 

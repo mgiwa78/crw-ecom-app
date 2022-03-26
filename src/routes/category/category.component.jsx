@@ -1,6 +1,6 @@
 import "./category.styles.scss";
 
-import { useContext, useEffect, useState } from "react/cjs/react.development";
+import { useContext, useEffect, useState } from "react";
 
 import { CategoryContext } from "../../context/category.context";
 import { useParams } from "react-router-dom";
