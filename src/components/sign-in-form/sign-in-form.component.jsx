@@ -1,5 +1,7 @@
 import { useState, useContext } from "react/cjs/react.development";
 
+import { BUTTON_TYPE_CLASS } from "../custom-btn/custom-btn.component";
+
 import Button from "../custom-btn/custom-btn.component";
 import FormInput from "../form-input/form-input.component";
 
@@ -82,10 +84,9 @@ const SignInForm = () => {
           <Button type="submit"> Sign In</Button>
           <Button
             type="button"
-            buttonType={"google"}
+            buttonType={BUTTON_TYPE_CLASS.google}
             onClick={signInWithGoogle}
           >
-            {" "}
             Sign In With Google
           </Button>
         </div>
