@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 
 import App from "./App";
 import { CategoryProvider } from "./context/category.context";
 import { UserProvider } from "./context/user.context";
+import { store } from "./store/store";
 import { CartProvider } from "./context/cart.context";
 
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
@@ -14,15 +16,15 @@ import "./index.scss";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <UserProvider>
+    <Provider store={store}>
+      <BrowserRouter>
         <CategoryProvider>
           <CartProvider>
             <App />
           </CartProvider>
         </CategoryProvider>
-      </UserProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
