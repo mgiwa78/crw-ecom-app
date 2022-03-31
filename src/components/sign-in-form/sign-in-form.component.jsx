@@ -5,8 +5,6 @@ import { BUTTON_TYPE_CLASS } from "../custom-btn/custom-btn.component";
 import Button from "../custom-btn/custom-btn.component";
 import FormInput from "../form-input/form-input.component";
 
-import { UserContext } from "../../context/user.context";
-
 import {
   auth,
   signInAuthUserWithEmailAndPassword,

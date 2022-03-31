@@ -56,6 +56,8 @@ const INITIAL_STATE = {
 export const CART_ACTION_TYPES = {
   SET_CART_ITEMS: "SET_CART_ITEMS",
   SET_CART_STATE: "SET_CART_STATE",
+  SET_CART_COUNT: "SET_CART_COUNT",
+  SET_CART_TOTAL: "SET_CART_TOTAL",
 };
 
 const cartReducer = (state, action) => {
@@ -157,3 +159,4 @@ export const CartProvider = ({ children }) => {
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
+1;
