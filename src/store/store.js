@@ -12,24 +12,24 @@ import thunk from "redux-thunk";
 
  */
 
-const loggerMiddleWare = (store) => (next) => (action) => {
-  if (!action.type) {
-    return next(action);
-  }
+// const loggerMiddleWare = (store) => (next) => (action) => {
+//   if (!action.type) {
+//     return next(action);
+//   }
 
-  console.log("type: ", action.type);
-  console.log("payload: ", action.payload);
-  console.log("currentState: ", store.getState());
+//   console.log("type: ", action.type);
+//   console.log("payload: ", action.payload);
+//   console.log("currentState: ", store.getState());
 
-  next(action);
+//   next(action);
 
-  console.log("next state: ", store.getState());
-};
+//   console.log("next state: ", store.getState());
+// };
 
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["user"],
+  whitelist: ["cart"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

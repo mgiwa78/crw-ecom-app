@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import {
   createUserDocumentFromAuth,
-  onAuthStateChangedListener,
+  // onAuthStateChangedListener,
   signUserOut,
 } from "./utils/firebase/firebase.utils";
 
@@ -18,16 +18,16 @@ import { setCurrentUser } from "./store/user/user.action";
 function App() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-      }
-      dispatch(setCurrentUser(user));
-    });
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChangedListener((user) => {
+  //     if (user) {
+  //       createUserDocumentFromAuth(user);
+  //     }
+  //     dispatch(setCurrentUser(user));
+  //   });
 
-    return unsubscribe;
-  }, []);
+  //   return unsubscribe;
+  // }, []);
   return (
     <Routes>
       <Route path="/" element={<Navigation />}>
