@@ -8,6 +8,7 @@ import {
   removeItemFromCart,
   removeItem,
 } from "../../store/cart/cart.action";
+import PaymentForm from "../payment-form/payment-form.styles";
 
 const CheckOutItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
