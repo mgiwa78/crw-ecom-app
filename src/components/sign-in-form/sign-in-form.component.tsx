@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, FormEvent, ChangeEvent, useContext } from "react";
 
 import { BUTTON_TYPE_CLASS } from "../custom-btn/custom-btn.component";
 
@@ -17,6 +17,7 @@ import {
   googleSignInStart,
 } from "../../store/user/user.action";
 import { signInWithEmail } from "../../store/user/user.saga";
+import { AuthError } from "firebase/auth";
 const defaultFields = {
   email: "",
   password: "",
@@ -26,14 +27,14 @@ const SignInForm = () => {
   const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultFields);
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
     setFormFields({ ...formFields, [name]: value });
   };
-    const resetFormFields = () => {
-      setFormFields(defaultFields);
-    };
+  const resetFormFields = () => {
+    setFormFields(defaultFields);
+  };
   const signInWithGoogle = async () => {
     dispatch(googleSignInStart());
     resetFormFields();
@@ -41,13 +42,13 @@ const SignInForm = () => {
 
   const { email, password } = formFields;
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
       dispatch(emailSignInStart(email, password));
     } catch (error) {
-      switch (error.code) {
+      switch ((error as AuthError).code) {
         case "auth/wrong-password":
           alert("incorect Password");
           break;

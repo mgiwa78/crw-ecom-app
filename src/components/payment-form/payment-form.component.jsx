@@ -1,6 +1,5 @@
 import { CardElement } from "@stripe/react-stripe-js";
 
-import Button from "../custom-btn/custom-btn.component";
 import { useStripe, useElements } from "@stripe/react-stripe-js";
 import { BUTTON_TYPE_CLASS } from "../custom-btn/custom-btn.component";
 import {
