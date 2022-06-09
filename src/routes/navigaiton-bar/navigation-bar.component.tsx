@@ -27,10 +27,6 @@ const Navigation = () => {
   const isCartOpen = useSelector(selectIsCartOpen);
   const signOutUser = () => dispatch(SignOutStart());
 
-  const toggleCart = (isCartOpen) => {
-    console.log("clicked");
-  };
-
   const signOutHandler = async () => {
     await signUserOut();
   };
@@ -54,7 +50,7 @@ const Navigation = () => {
               SIGN-IN
             </NavLink>
           )}
-          <CartIcon onClick={toggleCart} />
+          <CartIcon />
           {isCartOpen && <CartDropdown />}
         </NavLinksContainer>
       </NavigationBarContainer>
